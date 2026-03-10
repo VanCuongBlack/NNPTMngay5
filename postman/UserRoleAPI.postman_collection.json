@@ -1,0 +1,121 @@
+{
+ "info": {
+  "name": "User Role API",
+  "_postman_id": "12345",
+  "description": "API test for User and Role MongoDB",
+  "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+ },
+ "item": [
+
+  {
+   "name": "Create Role",
+   "request": {
+    "method": "POST",
+    "header": [
+     {
+      "key": "Content-Type",
+      "value": "application/json"
+     }
+    ],
+    "body": {
+     "mode": "raw",
+     "raw": "{\n \"name\":\"admin\",\n \"description\":\"administrator\"\n}"
+    },
+    "url": {
+     "raw": "http://localhost:3000/roles",
+     "protocol": "http",
+     "host": ["localhost"],
+     "port": "3000",
+     "path": ["roles"]
+    }
+   }
+  },
+
+  {
+   "name": "Get Roles",
+   "request": {
+    "method": "GET",
+    "url": "http://localhost:3000/roles"
+   }
+  },
+
+  {
+   "name": "Create User",
+   "request": {
+    "method": "POST",
+    "header": [
+     {
+      "key": "Content-Type",
+      "value": "application/json"
+     }
+    ],
+    "body": {
+     "mode": "raw",
+     "raw": "{\n\"username\":\"user1\",\n\"password\":\"123456\",\n\"email\":\"user1@gmail.com\",\n\"role\":\"ROLE_ID\"\n}"
+    },
+    "url": "http://localhost:3000/users"
+   }
+  },
+
+  {
+   "name": "Get Users",
+   "request": {
+    "method": "GET",
+    "url": "http://localhost:3000/users"
+   }
+  },
+
+  {
+   "name": "Search Username",
+   "request": {
+    "method": "GET",
+    "url": "http://localhost:3000/users?username=user"
+   }
+  },
+
+  {
+   "name": "Enable User",
+   "request": {
+    "method": "POST",
+    "header": [
+     {
+      "key": "Content-Type",
+      "value": "application/json"
+     }
+    ],
+    "body": {
+     "mode": "raw",
+     "raw": "{\n\"email\":\"user1@gmail.com\",\n\"username\":\"user1\"\n}"
+    },
+    "url": "http://localhost:3000/users/enable"
+   }
+  },
+
+  {
+   "name": "Disable User",
+   "request": {
+    "method": "POST",
+    "header": [
+     {
+      "key": "Content-Type",
+      "value": "application/json"
+     }
+    ],
+    "body": {
+     "mode": "raw",
+     "raw": "{\n\"email\":\"user1@gmail.com\",\n\"username\":\"user1\"\n}"
+    },
+    "url": "http://localhost:3000/users/disable"
+   }
+  },
+
+  {
+   "name": "Get Users By Role",
+   "request": {
+    "method": "GET",
+    "url": "http://localhost:3000/roles/ROLE_ID/users"
+   }
+  }
+
+ ]
+}
